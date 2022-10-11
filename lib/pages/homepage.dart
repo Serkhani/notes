@@ -34,7 +34,7 @@ class MyHomePage extends StatelessWidget {
                 if (snapshot.hasData) {
                   return ListView.builder(
                     shrinkWrap: true,
-                    // itemCount: ,
+                    itemCount: 8,
                     itemBuilder: (context, index) {
                       return NoteTile(note: snapshot.data!);
                     },
