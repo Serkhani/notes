@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'bindings/home_bindings.dart';
 import 'bindings/initial_bindings.dart';
 import 'pages/homepage.dart';
 import 'routes/routes.dart';
@@ -18,6 +19,10 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       getPages: AppRoutes.routes(),
       debugShowCheckedModeBanner: false,
+      // must be changed
+      initialBinding: HomeBindings(),
+      initialRoute: MyHomePage.routeName,
+      
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

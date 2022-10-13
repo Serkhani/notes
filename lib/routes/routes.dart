@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import '../bindings/home_bindings.dart';
 import '../pages/authpage.dart';
 import '../pages/notespage.dart';
 import '../pages/homepage.dart';
@@ -10,7 +11,7 @@ class AppRoutes {
         GetPage(name: "/", page: () => const SplashScreen()),
         GetPage(name: "/onboading", page: () => const OnboardingScreen()),
         GetPage(name: "/auth", page: () => const AuthPage()),
-        GetPage(name: "/home", page: () => const MyHomePage()),
+        GetPage(name: "/home", page: () => const MyHomePage(), binding: HomeBindings()),
         GetPage(name: "/notes", page: () => const NotesPage())
       ];
 }

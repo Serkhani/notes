@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
 
 class InputField extends StatelessWidget {
-  const InputField({Key? key, required this.maxLines, required this.label, this.hintText = ""}) : super(key: key);
+  const InputField(
+      {Key? key,
+      required this.maxLines,
+      required this.controller,
+      required this.label,
+      this.hintText = ""})
+      : super(key: key);
   final int maxLines;
   final String hintText;
   final Text label;
+  final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: TextField(
         maxLines: maxLines,
+        controller: controller,
         onEditingComplete: () {},
         autofocus: true,
         style: Theme.of(context).textTheme.titleSmall,
