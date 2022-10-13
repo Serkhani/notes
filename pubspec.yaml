@@ -43,6 +43,7 @@ dependencies:
   google_sign_in: ^5.4.2
   firebase_storage: ^10.3.11
   lottie: ^1.4.3
+  file_picker_cross: ^4.6.0
 
 dev_dependencies:
   flutter_test:
