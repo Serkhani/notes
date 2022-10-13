@@ -6,8 +6,8 @@ import 'pages/homepage.dart';
 import 'routes/routes.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  InitialBindings().dependencies();
+  // WidgetsFlutterBinding.ensureInitialized();
+  // InitialBindings().dependencies();
   runApp(const MyApp());
 }
 
