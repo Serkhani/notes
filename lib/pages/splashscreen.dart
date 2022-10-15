@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 
 class SplashScreen extends StatelessWidget {
@@ -6,12 +7,14 @@ class SplashScreen extends StatelessWidget {
   static const String routeName = "/";
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
         child: SizedBox(
-          height: 50.0,
-          width: 50.0, 
-          child: CircularProgressIndicator()
+          height: 100.0,
+          width: 100.0, 
+          child: Lottie.asset(
+            'assets/lottiesplashscreen.json'
+            )
         )
       )
     );

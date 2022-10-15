@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'bindings/home_bindings.dart';
 import 'bindings/initial_bindings.dart';
 import 'pages/homepage.dart';
+import 'pages/splashscreen.dart';
 import 'routes/routes.dart';
 
 void main() {
@@ -20,13 +20,13 @@ class MyApp extends StatelessWidget {
       getPages: AppRoutes.routes(),
       debugShowCheckedModeBanner: false,
       // must be changed
-      initialBinding: HomeBindings(),
-      initialRoute: MyHomePage.routeName,
+      initialBinding: InitialBindings(),
+      initialRoute: SplashScreen.routeName,
       
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(),
+      home: const SplashScreen(),
     );
   }
 }
