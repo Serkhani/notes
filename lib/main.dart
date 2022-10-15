@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
-import 'bindings/initial_bindings.dart';
-import 'pages/homepage.dart';
+import 'bindings/auth_bindings.dart';
+import 'bindings/splash_bindings.dart';
 import 'pages/splashscreen.dart';
 import 'routes/routes.dart';
 
-void main() {
+void main() async {
   // WidgetsFlutterBinding.ensureInitialized();
   // InitialBindings().dependencies();
   runApp(const MyApp());
@@ -17,16 +18,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      title: "Notes",
       getPages: AppRoutes.routes(),
       debugShowCheckedModeBanner: false,
       // must be changed
-      initialBinding: InitialBindings(),
-      initialRoute: SplashScreen.routeName,
-      
+      initialBinding: SplashBindings(),
+      initialRoute: SplashScreen.routeName,      
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const SplashScreen(),
     );
   }
 }
