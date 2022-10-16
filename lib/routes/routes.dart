@@ -10,7 +10,7 @@ import '../pages/splashscreen.dart';
 class AppRoutes {
   static List<GetPage> routes() => [
         GetPage(name: "/", page: () => const SplashScreen(), binding: SplashBindings()),
-        GetPage(name: "/onboading", page: () => const OnboardingScreen()),
+        GetPage(name: "/onboarding", page: () => const OnboardingScreen()),
         GetPage(name: "/auth", page: () => const AuthPage()),
         GetPage(name: "/home", page: () => const MyHomePage(), binding: HomeBindings()),
         GetPage(name: "/notes", page: () => const NotesPage())
