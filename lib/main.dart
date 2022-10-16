@@ -4,6 +4,7 @@ import 'package:get_storage/get_storage.dart';
 
 import 'bindings/auth_bindings.dart';
 import 'bindings/splash_bindings.dart';
+import 'pages/onboarding_screen.dart';
 import 'pages/splashscreen.dart';
 import 'routes/routes.dart';
 
@@ -22,8 +23,9 @@ class MyApp extends StatelessWidget {
       getPages: AppRoutes.routes(),
       debugShowCheckedModeBanner: false,
       // must be changed
+      // initialBinding: SplashBindings(),
       initialBinding: SplashBindings(),
-      initialRoute: SplashScreen.routeName,      
+      initialRoute: "/",      
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
