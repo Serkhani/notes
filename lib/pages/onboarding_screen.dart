@@ -27,29 +27,61 @@ class OnboardingScreen extends GetView<OnBoardingCon> {
           ),
           SizedBox(
             height: 400.0,
-            child: PageView.builder(
+            child: PageView(
               controller: controller.pageCon,
-              itemCount: controller.onboardingElements.length,
-              itemBuilder: (context, index) {
-                return OnBoardingElementWid(
-                  element: controller.onboardingElements[index],
-                );
+              // itemCount: controller.onboardingElements.length,
+              // itemBuilder: (context, index) {
+              //   return OnBoardingElementWid(
+              //     element: controller.onboardingElements[index],
+              //   );
+              // },
+              onPageChanged: (index) {
+                controller.index.value = index;
               },
+              children: controller.onboardingElements
+                  .map(
+                    (e) => OnBoardingElementWid(
+                      element: e,
+                    ),
+                  )
+                  .toList(),
             ),
           ),
           const Spacer(),
           Padding(
             padding: const EdgeInsets.all(12.0),
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  fixedSize: const Size(150.0, 50.0),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5.0),
-                  )),
-              child: const Text(
-                "Next",
+            child: Obx(
+              () => Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  controller.index.value >= 2
+                  ? ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      fixedSize: const Size(150.0, 50.0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                    ),
+                    child: const Text("Reset"),
+                    onPressed: () {
+                      controller.nextPage();
+                    },
+                  )
+                  : Container(),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      fixedSize: const Size(150.0, 50.0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                    ),
+                    child: const Text("Next"),
+                    onPressed: () {
+                      controller.nextPage();
+                    },
+                  ),
+                ],
               ),
-              onPressed: () {},
             ),
           ),
         ],
@@ -67,23 +99,20 @@ class OnBoardingElementWid extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.all(12.0),
-          child: SizedBox(
-            height: 200.0,
-            child: Image.asset(element.imgPath)),
+          child: SizedBox(height: 200.0, child: Image.asset(element.imgPath)),
         ),
         Text.rich(
-          TextSpan(
-            style: const TextStyle(fontSize: 17.0),
-            text: '${element.notesTitle}\n\n',
-            children: [
-              TextSpan(
-                text: element.notesSubtitle,
-                style: const TextStyle(fontSize: 12.0),
-              )
-            ],
-          ),
-          overflow: TextOverflow.fade
-        ),
+            TextSpan(
+              style: const TextStyle(fontSize: 17.0),
+              text: '${element.notesTitle}\n\n',
+              children: [
+                TextSpan(
+                  text: element.notesSubtitle,
+                  style: const TextStyle(fontSize: 12.0),
+                )
+              ],
+            ),
+            overflow: TextOverflow.fade),
       ],
     );
   }
