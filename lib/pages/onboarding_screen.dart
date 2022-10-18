@@ -19,7 +19,9 @@ class OnboardingScreen extends GetView<OnBoardingCon> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    controller.skip();
+                  },
                   child: const Text("Skip"),
                 ),
               ],
@@ -29,12 +31,6 @@ class OnboardingScreen extends GetView<OnBoardingCon> {
             height: 400.0,
             child: PageView(
               controller: controller.pageCon,
-              // itemCount: controller.onboardingElements.length,
-              // itemBuilder: (context, index) {
-              //   return OnBoardingElementWid(
-              //     element: controller.onboardingElements[index],
-              //   );
-              // },
               onPageChanged: (index) {
                 controller.index.value = index;
               },
@@ -52,22 +48,22 @@ class OnboardingScreen extends GetView<OnBoardingCon> {
             padding: const EdgeInsets.all(12.0),
             child: Obx(
               () => Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   controller.index.value >= 2
-                  ? ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      fixedSize: const Size(150.0, 50.0),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                    ),
-                    child: const Text("Reset"),
-                    onPressed: () {
-                      controller.nextPage();
-                    },
-                  )
-                  : Container(),
+                      ? ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            fixedSize: const Size(150.0, 50.0),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5.0),
+                            ),
+                          ),
+                          child: const Text("Reset"),
+                          onPressed: () {
+                            controller.resetPage();
+                          },
+                        )
+                      : Container(),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       fixedSize: const Size(150.0, 50.0),

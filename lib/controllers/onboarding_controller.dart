@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:notes/pages/homepage.dart';
 import 'package:notes/utils/onboarding_elements.dart';
 
 class OnBoardingCon extends GetxController {
@@ -22,14 +23,24 @@ class OnBoardingCon extends GetxController {
   ];
   late PageController pageCon;
   RxInt index = 0.obs;
+
+  void resetPage() {
+    index.value = 0;
+  }
+
+  void skip() {
+    Get.offNamed(MyHomePage.routeName);
+  }
+
   void nextPage() {
     if (index.value == 2) {
-      index.value = 0;
+      Get.offNamed(MyHomePage.routeName);
     } else {
       index.value += 1;
     }
-    pageCon.jumpToPage(index.value);
+    pageCon.animateToPage(index.value, duration: const Duration(milliseconds: 500), curve: Curves.fastOutSlowIn);
   }
+
 
   @override
   void onInit() {
