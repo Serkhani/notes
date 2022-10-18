@@ -19,8 +19,9 @@ class MyHomePage extends GetView<HomePageCon> {
             pinned: true,
             centerTitle: true,
             flexibleSpace: FlexibleSpaceBar(
-              background: Obx(() => Text(
-                  '${controller.notes.length} notes')), //x should be the length of the list of notes
+              background: Obx(
+                () => Text('${controller.notes.length}'),
+              ),
               title: const Text("N O T E S"),
               centerTitle: false,
             ),
