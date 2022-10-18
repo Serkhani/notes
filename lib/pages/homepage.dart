@@ -26,9 +26,9 @@ class MyHomePage extends GetView<HomePageCon> {
             ),
           ),
           SliverToBoxAdapter(
-            child: controller.notes.isNotEmpty
-                ? Obx(
-                    () => GridView.builder(
+            child: Obx(
+              () => controller.notes.isNotEmpty
+                  ? GridView.builder(
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 2),
@@ -37,16 +37,17 @@ class MyHomePage extends GetView<HomePageCon> {
                       itemBuilder: (context, index) {
                         return NoteTile(note: controller.notes[index]);
                       },
-                    ),
-                  )
-                : SizedBox(
-                    height: MediaQuery.of(context).size.height,
-                    child: const Center(
-                      child: Text(
-                        "No notes",
-                        style: TextStyle(fontSize: 24.0),
+                    )
+                  : SizedBox(
+                      height: MediaQuery.of(context).size.height,
+                      child: const Center(
+                        child: Text(
+                          "No notes",
+                          style: TextStyle(fontSize: 24.0),
+                        ),
                       ),
-                    )),
+                    ),
+            ),
           ),
         ],
       ),
