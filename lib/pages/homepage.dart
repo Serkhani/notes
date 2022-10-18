@@ -14,7 +14,7 @@ class MyHomePage extends GetView<HomePageCon> {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            expandedHeight: 100.0,
+            expandedHeight: 120.0,
             elevation: 0.0,
             pinned: true,
             centerTitle: true,
@@ -27,27 +27,28 @@ class MyHomePage extends GetView<HomePageCon> {
             ),
           ),
           SliverToBoxAdapter(
-            child: Obx(
-              () => controller.notes.isNotEmpty
-                  ? GridView.builder(
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2),
-                      shrinkWrap: true,
-                      itemCount: controller.notes.length,
-                      itemBuilder: (context, index) {
-                        return NoteTile(note: controller.notes[index]);
-                      },
-                    )
-                  : SizedBox(
-                      height: MediaQuery.of(context).size.height,
-                      child: const Center(
-                        child: Text(
-                          "No notes",
-                          style: TextStyle(fontSize: 24.0),
+            child: SizedBox(
+              height: MediaQuery.of(context).size.height,
+              child: Obx(
+                () => controller.notes.isNotEmpty
+                    ? GridView.builder(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2),
+                        shrinkWrap: true,
+                        itemCount: controller.notes.length,
+                        itemBuilder: (context, index) {
+                          return NoteTile(note: controller.notes[index]);
+                        },
+                      )
+                    : const Center(
+                          child: Text(
+                            "No notes",
+                            style: TextStyle(fontSize: 24.0),
+                          ),
                         ),
-                      ),
-                    ),
+                      
+              ),
             ),
           ),
         ],
