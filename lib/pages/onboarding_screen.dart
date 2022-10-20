@@ -91,25 +91,28 @@ class OnBoardingElementWid extends StatelessWidget {
   final OnBoardingElement element;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: SizedBox(height: 200.0, child: Image.asset(element.imgPath)),
-        ),
-        Text.rich(
-            TextSpan(
-              style: const TextStyle(fontSize: 17.0),
-              text: '${element.notesTitle}\n\n',
-              children: [
-                TextSpan(
-                  text: element.notesSubtitle,
-                  style: const TextStyle(fontSize: 12.0),
-                )
-              ],
-            ),
-            overflow: TextOverflow.fade),
-      ],
+    return Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(bottom: 12.0),
+            child: SizedBox(height: 200.0, child: Image.asset(element.imgPath)),
+          ),
+          Text.rich(
+              TextSpan(
+                style: const TextStyle(fontSize: 17.0),
+                text: '${element.notesTitle}\n\n',
+                children: [
+                  TextSpan(
+                    text: element.notesSubtitle,
+                    style: const TextStyle(fontSize: 12.0),
+                  )
+                ],
+              ),
+              overflow: TextOverflow.fade),
+        ],
+      ),
     );
   }
 }
