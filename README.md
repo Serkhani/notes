@@ -1,6 +1,6 @@
 # notes
 
-A new Flutter project.
+A new Flutter project. Building a flutter app to be able to write notes.
 
 ## Getting Started
 
